@@ -9,6 +9,7 @@ import urlparse
 class LinkedIn(OAuth):
     api_key = getattr(settings, 'LINKEDIN_CONSUMER_KEY', '')
     secret_key = getattr(settings, 'LINKEDIN_CONSUMER_SECRET_KEY', '')
+    scope = getattr(settings, 'LINKEDIN_REQUEST_PERMISSIONS', '')
     
     request_token_url = 'https://api.linkedin.com/uas/oauth/requestToken'
     access_token_url = 'https://api.linkedin.com/uas/oauth/accessToken'

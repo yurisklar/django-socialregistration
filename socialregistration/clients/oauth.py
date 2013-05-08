@@ -43,6 +43,9 @@ class OAuth(Client):
     # The access token URL we'll be fetching the access token from
     access_token_url = None
     
+    # The permission's we'll be asking for
+    scope = None
+
     # Memoized request token
     _request_token = None
     
@@ -93,6 +96,8 @@ class OAuth(Client):
         params = {
             'oauth_callback': self.get_callback_url()
         }
+        if self.scope:
+            params["scope"] = self.scope
         
         
         response, content = self.client().request(self.request_token_url,
